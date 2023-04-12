@@ -1,12 +1,58 @@
 .opt-top-container {
   background: #18154d;
+  color: #ffffff;
   .header {
-    height: 60px;
+    height: 6rem;
     .header-inner {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 0 10%;
+      margin: 0 5%;
+      .logo-div {
+        .logo {
+          display: block;
+          width: 10rem;
+          height: 3rem;
+        }
+      }
+      .header-items {
+        display: flex;
+        h2 {
+          font-family: "Jost700";
+          font-size: 1.5rem;
+          letter-spacing: 0.02rem;
+          margin: 0 2rem 0 0;
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .bottom-content {
+    .bottom-inner {
+      display: flex;
+      flex-direction: column;
+      margin: 0 5.5%;
+      .text-1 {
+        font-family: "Jost600";
+        font-size: 14px;
+        letter-spacing: -0.02em;
+        font-style: italic;
+        margin: 20px 0 12px;
+      }
+      .text-2 {
+        font-family: "Jost700";
+        font-size: 28px;
+        letter-spacing: 0.01em;
+        margin: 0;
+      }
+      .text-3 {
+        font-family: "Jost500";
+        font-size: 16px;
+        margin: 7px 0 40px;
+      }
     }
   }
 }
