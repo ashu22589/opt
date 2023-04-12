@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { ReactComponent as LogoSvg } from "./assets/images/opt/logo.svg";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="opt-top-container">
+      <div className="header">
+        <div className="header-inner">
+          <div className="logo">
+            <LogoSvg />
+          </div>
+          <div>
+            <h2>Outside Team Building</h2>
+            <h2>Challenges</h2>
+            <h2>Team Reports</h2>
+            <h2>Invite</h2>
+            <h2>CreightonCreighton</h2>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

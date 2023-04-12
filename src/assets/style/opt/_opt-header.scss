@@ -1,0 +1,12 @@
+.opt-top-container {
+  background: #18154d;
+  .header {
+    height: 60px;
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 10%;
+    }
+  }
+}

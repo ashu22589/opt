@@ -1,0 +1,37 @@
+html,
+body {
+  @media screen and (min-width: 4001px) {
+    font-size: 26px;
+  }
+  @media screen and (min-width: 3001px) and (max-width: 4000px) {
+    font-size: 24px;
+  }
+  @media screen and (min-width: 2201px) and (max-width: 3000px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1601px) and (max-width: 2200px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 1600px) {
+    font-size: 10px;
+  }
+}
+
+@font-face {
+  font-family: "Jost400";
+  src: url("../fonts/jost/Jost-400-Book.ttf");
+}
+@font-face {
+  font-family: "Jost500";
+  src: url("../fonts/jost/Jost-500-Medium.ttf");
+}
+@font-face {
+  font-family: "Jost600";
+  src: url("../fonts/jost/Jost-600-Semi.ttf");
+}
+@font-face {
+  font-family: "Jost700";
+  src: url("../fonts/jost/Jost-700-Bold.ttf");
+}
+
+@import "./opt/opt";
