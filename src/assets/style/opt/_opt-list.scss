@@ -1,0 +1,128 @@
+.opt-list-div {
+  background: #fff;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #e8e7e7;
+  .list-header-div {
+    background: #25629d;
+    color: #fff;
+    .list-top {
+      height: 5.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 3rem;
+      font-family: "Jost700";
+      h2 {
+        font-size: 1.6rem;
+        margin: 0;
+      }
+      .add-event-btn {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 11rem;
+        height: 3.5rem;
+        background: #08af54;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
+    .list-filters {
+      height: 5.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .filter-cell {
+        width: 18.4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        h2 {
+          font-family: "Jost500";
+          font-size: 1.6rem;
+          margin: 0;
+        }
+        .filter-icon {
+          position: absolute;
+          right: 9%;
+          width: 2.4rem;
+          height: 1.4rem;
+        }
+      }
+      .last-columns {
+        width: 8%;
+      }
+    }
+  }
+
+  .list-container {
+    .event-list-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 6rem 0;
+      .bro-icon {
+        width: 35rem;
+        height: 33rem;
+      }
+    }
+    .empty-list-text {
+      font-family: "Jost500";
+      font-size: 1.6rem;
+      color: #18154d;
+      margin: 5rem 0 0;
+    }
+
+    .event-list-div {
+      height: 5rem;
+      display: flex;
+      .event-data-name {
+        width: 18.4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-width: 0px 1px 1px 0px;
+        border-style: solid;
+        border-color: #e8e7e7;
+        &.name {
+          justify-content: flex-start;
+          padding-left: 3.5rem;
+        }
+        .event-text-data {
+          margin: 0;
+          font-family: "Jost500";
+          font-size: 1.6rem;
+          color: #606060;
+          &.name {
+            font-size: 1.5rem;
+            color: #25629d;
+            cursor: pointer;
+          }
+        }
+      }
+      .event-icon-div {
+        width: 4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-width: 0px 1px 1px 0px;
+        border-style: solid;
+        border-color: #e8e7e7;
+        cursor: pointer;
+        &:last-child {
+          border-width: 0px 0px 1px 0px;
+        }
+        .event-icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
