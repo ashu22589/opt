@@ -1,0 +1,113 @@
+.opt-event {
+  padding: 3rem 3.8rem;
+  background: #fff;
+  border: 0.15rem solid rgba(24, 21, 77, 0.25);
+  border-radius: 2.5rem;
+  .top-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .text-div {
+      color: #18154d;
+      .event-top-text-1 {
+        margin: 0;
+        font-family: "Jost600";
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+      }
+      .event-top-text-2 {
+        margin: 1.5rem 0 0;
+        font-family: "Jost400";
+        font-size: 1.6rem;
+      }
+    }
+    .btn-div {
+      display: flex;
+      .back-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 14rem;
+        height: 3.8rem;
+        border-radius: 2rem;
+        font-family: "Jost600";
+        font-size: 1.4rem;
+        letter-spacing: -0.02em;
+        cursor: pointer;
+        &.back {
+          border: 0.15rem solid #18154d;
+          background: #ffffff;
+          color: #18154d;
+          margin-right: 1.8rem;
+        }
+        &.create {
+          background: #08af54;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .event-title {
+    padding: 0 2rem;
+    width: 100%;
+    height: 6rem;
+    border: 0.25rem solid rgba(24, 21, 77, 0.25);
+    border-radius: 1rem;
+    margin-top: 3rem;
+
+    font-family: "Jost400";
+    font-size: 1.85rem;
+    color: #18154d;
+    &::placeholder {
+      // opacity: 0.7;
+    }
+    &:focus {
+      border: none;
+      outline: 0.25rem solid #08af54;
+    }
+  }
+  .date-container {
+    .duration-label {
+      font-family: "Jost600";
+      font-size: 1.8rem;
+      letter-spacing: -0.02em;
+      text-decoration: underline;
+      color: #08af54;
+      margin: 3rem 0 2rem;
+    }
+    .date-container-1 {
+      display: flex;
+      justify-content: space-between;
+      &.second-div {
+        margin-top: 1.5rem;
+      }
+      .date-div {
+        width: 49.3%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.6rem;
+        height: 6rem;
+        border: 0.25rem solid rgba(24, 21, 77, 0.25);
+        border-radius: 1rem;
+        cursor: pointer;
+        position: relative;
+        .date-label {
+          font-family: "Jost400";
+          font-size: 1.85rem;
+          color: #18154d;
+          opacity: 0.7;
+          margin: 0;
+        }
+        .date-dropdown-arrow {
+          width: 1.6rem;
+          height: 0.9rem;
+        }
+        &.time {
+        }
+      }
+    }
+    .date-container-2 {
+    }
+  }
+}

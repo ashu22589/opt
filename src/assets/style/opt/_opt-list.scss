@@ -38,6 +38,7 @@
       justify-content: space-between;
       .filter-cell {
         width: 18.4%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -53,6 +54,47 @@
           right: 9%;
           width: 2.4rem;
           height: 1.4rem;
+        }
+        .filter-dropdown {
+          position: absolute;
+          left: 0;
+          width: 99.5%;
+          top: 100%;
+          background: #ffffff;
+          box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+          border-radius: 0 0 0.8rem 0.8rem;
+          padding: 0.3rem 0;
+          h2 {
+            font-family: "Jost500";
+            font-size: 1.6rem;
+            color: #606060;
+            margin: 0 1rem;
+          }
+          .sort-type {
+            font-family: "Jost500";
+            font-size: 1.6rem;
+            color: #25629d;
+            padding: 0 2rem;
+            &:hover {
+              background: #25629d;
+              color: #ffffff;
+            }
+          }
+          .filter-type {
+            .input-filter {
+              display: flex;
+              align-items: center;
+              .checkbox {
+                margin: 0 1rem 0 2rem;
+              }
+              h3 {
+                font-family: "Jost500";
+                font-size: 1.6rem;
+                color: #25629d;
+                margin: 0;
+              }
+            }
+          }
         }
       }
       .last-columns {
