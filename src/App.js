@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import moment from "moment";
+import _ from "lodash";
 import { ReactComponent as BroSvg } from "./assets/images/opt/bro.svg";
 import { ReactComponent as LogoSvg } from "./assets/images/opt/logo.svg";
 import { ReactComponent as CrossSvg } from "./assets/images/opt/cross.svg";
@@ -17,9 +19,10 @@ import "rc-time-picker/assets/index.css";
 function App() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState("");
   const [startDateExpanded, setStartDateExpanded] = useState(false);
-  console.log("msdu9yhs", startDateExpanded);
+  const [startTimeExpanded, setStartTimeExpanded] = useState(false);
+  console.log("msdu9yhs", selected, moment(selected).format("MM-DD-YYYY"));
 
   const toggleDeleteModal = () => {
     setDeleteModalOpen((prev) => !prev);
@@ -95,44 +98,82 @@ function App() {
                 className="date-div"
                 onClick={() => setStartDateExpanded((prev) => !prev)}
               >
-                <span className="date-label">Start Date</span>
+                <span className="date-label">{`${
+                  selected === ""
+                    ? "Start Date"
+                    : moment(selected).format("MM/DD/YYYY")
+                }`}</span>
                 <DownArrowSvg className="date-dropdown-arrow" />
                 {startDateExpanded && (
-                  <DayPicker
-                    mode="single"
-                    selected={selected}
-                    onSelect={setSelected}
-                    className="calender-months"
-                  />
-                  //           <DayPicker
-                  //   mode="range"
-                  //   max={60}
-                  //   className="calender-months"
-                  //   selected={selectedDate}
-                  //   defaultMonth={defaultMonth}
-                  //   disabled={[
-                  //     { before: new Date() },
-                  //     {
-                  //       after: nextMonth._d,
-                  //     },
-                  //     ...selectedDaysToDisable,
-                  //   ]}
-                  //   modifiers={{ holidays: holidaysList, weekend: weekendList }}
-                  //   modifiersStyles={getModifierStyles()}
-                  //   onDayClick={(day) => {
-                  //     handleSelectDate(day);
-                  //   }}
-                  //   localeUtils={{
-                  //     ...LocaleUtils,
-                  //     formatWeekdayShort: getFormattedDayTitle,
-                  //   }}
-                  //   onMonthChange={setMonth}
-                  // />
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="day-picker-main"
+                  >
+                    <DayPicker
+                      mode="single"
+                      required
+                      selected={selected}
+                      onSelect={setSelected}
+                      className="calender-months"
+                      fromDate={new Date()}
+                    />
+                  </div>
                 )}
               </div>
-              <div className="date-div time">
+              <div
+                className="date-div time"
+                onClick={() => setStartTimeExpanded((prev) => !prev)}
+              >
                 <span className="date-label">Start Time</span>
                 <DownArrowSvg className="date-dropdown-arrow" />
+                {startTimeExpanded && (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="time-picker-main"
+                  >
+                    <div className="time-picker-inner">
+                      <div className="vertical-time-div hours">
+                        {[...Array(12)].map((_, index) => (
+                          <div
+                            className={`time-unit ${
+                              index === 0 ? "selected" : ""
+                            }`}
+                          >{`${index === 0 ? "12" : index}`}</div>
+                        ))}
+                      </div>
+                      <div className="vertical-time-div minutes">
+                        {[...Array(60)].map((_, index) => (
+                          <div
+                            className={`time-unit ${
+                              index === 5 ? "selected" : ""
+                            }`}
+                          >{`${
+                            index.toString().length === 1 ? "0" + index : index
+                          }`}</div>
+                        ))}
+                      </div>
+                      <div className="vertical-time-div am-pm">
+                        <div className={`time-unit ${true ? "selected" : ""}`}>
+                          AM
+                        </div>
+                        <div className={`time-unit ${false ? "selected" : ""}`}>
+                          PM
+                        </div>
+                      </div>
+                    </div>
+                    {/* <TimePicker
+                      open
+                      showSecond={false}
+                      value=""
+                      className=""
+                      popupClassName=""
+                      use12Hours
+                      onChange={() => {}}
+                      onAmPmChange={() => {}}
+                      inputReadOnly
+                    /> */}
+                  </div>
+                )}
               </div>
             </div>
             <div className="date-container-1 second-div">
@@ -144,22 +185,6 @@ function App() {
                 <span className="date-label">End Time</span>
                 <DownArrowSvg className="date-dropdown-arrow" />
               </div>
-              {/* <DayPicker
-                mode="single"
-                selected={selected}
-                onSelect={setSelected}
-              /> */}
-              {/* <TimePicker
-                open
-                showSecond={false}
-                value=""
-                className=""
-                popupClassName=""
-                use12Hours
-                onChange={() => {}}
-                onAmPmChange={() => {}}
-                inputReadOnly
-              /> */}
             </div>
           </div>
         </div>
