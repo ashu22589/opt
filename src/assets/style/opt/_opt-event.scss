@@ -66,7 +66,52 @@
       outline: 0.25rem solid #08af54;
     }
   }
+
+  .horizontal-divider {
+    border: 0.15rem solid rgba(24, 21, 77, 0.25);
+    margin-top: 3rem;
+  }
+
   .date-container {
+    &.event-details {
+    }
+    &.participants {
+      .header-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .add-teammates-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 4rem;
+          background: #18154d;
+          border-radius: 100px;
+          padding: 0 2rem;
+          cursor: pointer;
+          font-family: "Jost600";
+          font-size: 1.5rem;
+          letter-spacing: -0.02em;
+          color: #fff;
+        }
+      }
+      .participants-main {
+        &.empty {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .bro-image {
+          }
+          .empty-text {
+            font-family: "Jost500";
+            font-size: 1.7rem;
+            color: #18154d;
+            margin: 3rem 0 0;
+          }
+        }
+      }
+    }
     .duration-label {
       font-family: "Jost600";
       font-size: 1.8rem;
@@ -106,8 +151,6 @@
         &.time {
         }
       }
-    }
-    .date-container-2 {
     }
   }
 }

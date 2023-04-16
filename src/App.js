@@ -10,11 +10,10 @@ import { ReactComponent as DeleteEventSvg } from "./assets/images/opt/delete-eve
 import { ReactComponent as CheckBoxEnabledSvg } from "./assets/images/opt/checkbox-enabled.svg";
 import { ReactComponent as CheckBoxDisabledSvg } from "./assets/images/opt/checkbox-disabled.svg";
 import { ReactComponent as DownArrowSvg } from "./assets/images/opt/down-arrow.svg";
+import { ReactComponent as AddTypeSvg } from "./assets/images/opt/add-type.svg";
 
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import TimePicker from "rc-time-picker";
-import "rc-time-picker/assets/index.css";
 
 function App() {
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -22,6 +21,8 @@ function App() {
   const [selected, setSelected] = useState("");
   const [startDateExpanded, setStartDateExpanded] = useState(false);
   const [startTimeExpanded, setStartTimeExpanded] = useState(false);
+  const [eventTypeExpanded, setEventTypeExpanded] = useState(false);
+  const [eventDetailsExpanded, setEventDetailsExpanded] = useState(false);
   console.log("msdu9yhs", selected, moment(selected).format("MM-DD-YYYY"));
 
   const toggleDeleteModal = () => {
@@ -135,6 +136,7 @@ function App() {
                       <div className="vertical-time-div hours">
                         {[...Array(12)].map((_, index) => (
                           <div
+                            key={index}
                             className={`time-unit ${
                               index === 0 ? "selected" : ""
                             }`}
@@ -144,6 +146,7 @@ function App() {
                       <div className="vertical-time-div minutes">
                         {[...Array(60)].map((_, index) => (
                           <div
+                            key={index}
                             className={`time-unit ${
                               index === 5 ? "selected" : ""
                             }`}
@@ -161,17 +164,6 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    {/* <TimePicker
-                      open
-                      showSecond={false}
-                      value=""
-                      className=""
-                      popupClassName=""
-                      use12Hours
-                      onChange={() => {}}
-                      onAmPmChange={() => {}}
-                      inputReadOnly
-                    /> */}
                   </div>
                 )}
               </div>
@@ -185,6 +177,85 @@ function App() {
                 <span className="date-label">End Time</span>
                 <DownArrowSvg className="date-dropdown-arrow" />
               </div>
+            </div>
+          </div>
+
+          <div className="horizontal-divider" />
+
+          <div className="date-container event-details">
+            <h2 className="duration-label">Event Details</h2>
+            <div className="date-container-1">
+              <div
+                className="date-div"
+                onClick={() => setEventTypeExpanded((prev) => !prev)}
+              >
+                <span className="date-label">Event Type</span>
+                <DownArrowSvg className="date-dropdown-arrow" />
+                {eventTypeExpanded && (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="event-type-dropdown"
+                  >
+                    <div className="event-type-inner">
+                      {[...Array(4)].map((_, index) => (
+                        <div className="type-main" key={index}>
+                          Team Building Exercise
+                        </div>
+                      ))}
+                      <div className="other-event">
+                        <h2 className="other-text">Other:</h2>
+                        <input
+                          type="text"
+                          value=""
+                          placeholder="Event Title"
+                          className="event-type-add"
+                          onChange={() => {}}
+                        />
+                        <AddTypeSvg className="add-type-icon" />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div
+                className="date-div"
+                onClick={() => setEventDetailsExpanded((prev) => !prev)}
+              >
+                <span className="date-label">Event Category</span>
+                <DownArrowSvg className="date-dropdown-arrow" />
+                {eventDetailsExpanded && (
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    className="event-type-dropdown"
+                  >
+                    <div className="event-type-inner">
+                      {[...Array(5)].map((_, index) => (
+                        <div className="type-main" key={index}>
+                          Communication
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="horizontal-divider" />
+
+          <div className="date-container participants">
+            <div className="header-div">
+              <h2 className="duration-label">Event Participants</h2>
+              <div className="add-teammates-btn">Add Teammates</div>
+            </div>
+            <div className={`participants-main ${false ? "empty" : ""}`}>
+              {/* No Participants */}
+              {/* <BroSvg className="bro-image" />
+              <h2 className="empty-text">
+                No Teammates to display. Add Teammates to record attendance for
+                your event.
+              </h2> */}
+              {/* Participants List */}
             </div>
           </div>
         </div>
