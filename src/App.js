@@ -11,7 +11,10 @@ import { ReactComponent as CheckBoxEnabledSvg } from "./assets/images/opt/checkb
 import { ReactComponent as CheckBoxDisabledSvg } from "./assets/images/opt/checkbox-disabled.svg";
 import { ReactComponent as DownArrowSvg } from "./assets/images/opt/down-arrow.svg";
 import { ReactComponent as AddTypeSvg } from "./assets/images/opt/add-type.svg";
-
+import { ReactComponent as DeleteIconSvg } from "./assets/images/opt/delete-icon.svg";
+import { ReactComponent as DummyAvatarSvg } from "./assets/images/opt/dummy-avatar.svg";
+import DeleteModal from "./components/DeleteModal";
+import AddTeammateModal from "./components/AddTeammateModal";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
@@ -23,10 +26,20 @@ function App() {
   const [startTimeExpanded, setStartTimeExpanded] = useState(false);
   const [eventTypeExpanded, setEventTypeExpanded] = useState(false);
   const [eventDetailsExpanded, setEventDetailsExpanded] = useState(false);
-  console.log("msdu9yhs", selected, moment(selected).format("MM-DD-YYYY"));
+  const [deleteParticipantModal, setDeleteParticipantModal] = useState(false);
+  const [addTeammateModal, setAddTeammateModal] = useState(false);
+  console.log("msdu9yhs", addTeammateModal);
 
   const toggleDeleteModal = () => {
     setDeleteModalOpen((prev) => !prev);
+  };
+
+  const toggleDeleteParticipantModal = () => {
+    setDeleteParticipantModal((prev) => !prev);
+  };
+
+  const toggleAddTeammateModal = () => {
+    setAddTeammateModal((prev) => !prev);
   };
 
   useEffect(() => {
@@ -246,16 +259,47 @@ function App() {
           <div className="date-container participants">
             <div className="header-div">
               <h2 className="duration-label">Event Participants</h2>
-              <div className="add-teammates-btn">Add Teammates</div>
+              <div
+                className="add-teammates-btn"
+                onClick={() => setAddTeammateModal(true)}
+              >
+                Add Teammates
+              </div>
             </div>
-            <div className={`participants-main ${false ? "empty" : ""}`}>
-              {/* No Participants */}
-              {/* <BroSvg className="bro-image" />
+            {/* No Participants */}
+            {/* <div className="participants-empty">
+              <BroSvg className="bro-image" />
               <h2 className="empty-text">
                 No Teammates to display. Add Teammates to record attendance for
                 your event.
-              </h2> */}
-              {/* Participants List */}
+              </h2>
+            </div> */}
+            {/* Participants List */}
+            <div className="participants-main">
+              <div className="participants-header">
+                <div className="header-item">Teammate</div>
+                <div className="header-item">Teammate</div>
+                <div className="header-item">Teammate</div>
+                <div className="last-div"></div>
+              </div>
+              <div className="participants-list-main">
+                {[...Array(4)].map((_, index) => (
+                  <div key={index} className="participants-list">
+                    <div className="list-cell highlight">
+                      <DummyAvatarSvg className="avatar" />
+                      Teammate Name
+                    </div>
+                    <div className="list-cell">teammate@email.com</div>
+                    <div className="list-cell">Marketing</div>
+                    <div
+                      className="delete-div"
+                      onClick={() => setDeleteParticipantModal(true)}
+                    >
+                      <DeleteIconSvg className="delete-div-icon" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -280,6 +324,13 @@ function App() {
             </div>
           </div>
         </div>
+      )}
+      {deleteModalOpen && <DeleteModal event onClose={toggleDeleteModal} />}
+      {addTeammateModal && (
+        <AddTeammateModal onClose={toggleAddTeammateModal} />
+      )}
+      {deleteParticipantModal && (
+        <DeleteModal onClose={toggleDeleteParticipantModal} />
       )}
     </div>
   );

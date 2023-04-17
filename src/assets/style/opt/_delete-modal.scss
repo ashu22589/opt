@@ -8,12 +8,13 @@
   justify-content: center;
   background: rgba($color: #000000, $alpha: 0.5);
   .modal-inner {
+    width: 68rem;
     padding: 3.6rem 4rem 4.5rem;
     background: #f8f8f8;
     border-radius: 2rem;
     .modal-text {
       font-family: "Jost700";
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       letter-spacing: -0.01em;
       color: #1e3c60;
       &.name {
@@ -23,11 +24,16 @@
     .top-div {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      position: relative;
       h2 {
         margin: 0;
+        width: 92%;
       }
       .modal-cross {
-        margin-left: 5rem;
+        position: absolute;
+        right: 1rem;
+        top: 0.5rem;
         cursor: pointer;
         width: 1.6rem;
         height: 1.6rem;
@@ -49,6 +55,7 @@
         font-size: 2.3rem;
         letter-spacing: 0.05em;
         color: #fff;
+        cursor: pointer;
         &.back {
           background: #25629d;
         }

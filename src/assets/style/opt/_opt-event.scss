@@ -95,19 +95,86 @@
           color: #fff;
         }
       }
+      .participants-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .bro-image {
+        }
+        .empty-text {
+          font-family: "Jost500";
+          font-size: 1.7rem;
+          color: #18154d;
+          margin: 3rem 0 0;
+        }
+      }
       .participants-main {
-        &.empty {
+        overflow: hidden;
+        border-radius: 2.6rem;
+        border-width: 0px 0.15rem 0.15rem 0.15rem;
+        border-style: solid;
+        border-color: #e8e7e7;
+        .participants-header {
+          height: 5.2rem;
+          background: #25629d;
           display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          .bro-image {
-          }
-          .empty-text {
+          .header-item {
+            width: 31.66%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             font-family: "Jost500";
-            font-size: 1.7rem;
-            color: #18154d;
-            margin: 3rem 0 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: #ffffff;
+          }
+          .last-div {
+            width: 5%;
+          }
+        }
+        .participants-list-main {
+          .participants-list {
+            display: flex;
+            height: 5.2rem;
+            .list-cell {
+              width: 31.66%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              font-family: "Jost400";
+              font-size: 1.8rem;
+              color: #606060;
+              border-width: 0 0.15rem 0.15rem 0;
+              border-style: solid;
+              border-color: #e8e7e7;
+              &.highlight {
+                font-family: "Jost500";
+                font-size: 1.7rem;
+                color: #25629d;
+              }
+              .avatar {
+                width: 2.6rem;
+                height: 2.6rem;
+                margin-right: 1rem;
+              }
+            }
+            .delete-div {
+              width: 5%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-width: 0 0 0.15rem 0;
+              border-style: solid;
+              border-color: #e8e7e7;
+              cursor: pointer;
+              .delete-div-icon {
+                width: 1.7rem;
+                height: 1.7rem;
+              }
+            }
           }
         }
       }
